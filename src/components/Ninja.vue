@@ -6,18 +6,6 @@
  -->
  <!-- BT - You can only have a single <div></div> in your template. All other must be nested inside this root <div></div> -->
 
- <!-- BT - Nested component - There are two ways that you can do this:
-           a. Nested locally.
-           b. Nested globally.
- -->
- <!-- BT - Step1 - Nested Globally:
-           a. Create you new component.
-           b. Go to main.js and register your new component there
- -->
-  <!-- BT - Step1 - Nested Locally:
-           a. Create you new component.
-           b. Go to App.vue(Root component file) and register your new component there
- -->
   <div>
     <h1>{{ name }}</h1>
 
