@@ -1,0 +1,5 @@
+There are two ways that you can nested your components:
+
+- Globally
+
+- Locally
