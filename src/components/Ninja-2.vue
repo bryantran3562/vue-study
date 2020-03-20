@@ -18,7 +18,7 @@ export default {
   data(){
 
     return {
-        name: 'Ninja 1',
+        name: 'Ninja 2',
     }
   }
 
