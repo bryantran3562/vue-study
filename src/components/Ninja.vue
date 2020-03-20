@@ -27,6 +27,16 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
+<!-- BT - CSS:
+     a. You can add your css here.
+     b. With 'scope' - it means local to this file.
+     c. Without 'scope' - It means apply to all files.
+-->
+
 <style scoped>
+
+  h1{
+    color: red;
+  }
 
 </style>
