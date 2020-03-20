@@ -8,32 +8,43 @@
 
   <div>
     <h1>{{ name }}</h1>
-    <p> {{ title }} </p>
+    <p>{{ title }}</p>
 
 
   </div>
 </template>
 
 <!-- ############################################################################################################################
-BT - Lesson: Events:
-- The child will emit an event to the Root Component. The Root component will then received it and it will broadcast or props this
-  changes to other childs.
+BT - Lesson: BUS: Step 3: import bus into both of your child component that you want to communicated
+                          between them. See Ninja-2.vue
+
 #################################################################################################################################-->
+
 <script>
+
+import bus from '../main.js';
+
 export default {
 
-  props:{
-    title: {
-      type: String
-    }
-  },
 
   data(){
 
     return {
         name: 'Ninja 2',
+        title: ''
     }
   },
+  //BT - We want to set up the listen on the bus event on the 'Created' life cycle hook.
+  //Notes: Not sure why this did not work:
+  //function(data){
+  // this.title = data;
+  //}
+  mounted() {
+      bus.$on('Data Change',(data)=>{
+          this.name = data;
+          console.log(data)
+      })
+  }
 
 }
 </script>

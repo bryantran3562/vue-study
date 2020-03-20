@@ -8,38 +8,35 @@
 
   <div>
     <h1>{{ name }}</h1>
-    <p> {{ title }} </p>
+    <p>{{ title }}</p>
     <button @click="ChangeTitle()">Change Title</button>
+
 
   </div>
 </template>
 
 <!-- ############################################################################################################################
-BT - Lesson: Events:
-- The child will emit an event to the Root Component. The Root component will then received it and it will broadcast or props this
-  changes to other childs.
-#################################################################################################################################-->
-<script>
-export default {
+BT - Lesson: BUS: See step 1 in main.js - Step 2: import bus into both of your child component that you want to communicated
+                                                  between them. See Ninja-2.vue
 
-  props:{
-    title: {
-      type: String
-    }
-  },
+#################################################################################################################################-->
+
+<script>
+import bus from '../main.js';
+
+export default {
 
   data(){
 
     return {
         name: 'Ninja 1',
+        title: 'Data in Ninja'
     }
   },
-  methods:{
+
+  methods: {
     ChangeTitle: function(){
-      // BT - Event - Step  1:
-      //'ChangeTitle': The name of the event.
-      //'Data from child': Data that you want to send to the Root Component. See App.vue
-      this.$emit('ChangeTitle','Data from child Ninja.vue')
+        bus.$emit('Data Change','This data is from Ninja');
     }
   }
 
