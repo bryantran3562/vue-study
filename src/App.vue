@@ -1,25 +1,37 @@
 <template>
-<!-- BT - This is a ROOT component file - where you would need to nest all of your other components -->
+
   <div id="app">
-    <!-- BT - Step4 - Nested Locally:
-        a. Finally, add your new component here.
-    -->
-    <Ninja></Ninja>
+
+    <!-- BT - Props - Step3:
+    Then pass your data here to your child component.
+    Notes: If you don't use v-bind, then it just pass the data as a string. You
+           need to use v-bind to send the data that you have defined in the data() property.
+     -->
+    <Ninja v-bind:Ninja="Ninja"></Ninja>
   </div>
 </template>
 
+<!--#################################################
+BT - Lesson on Props.
+     Sending data from the parent to the child.
+#####################################################-->
 <script>
-// BT - Step2 - Nested Locally:
-//a. Import your new component here with import statement
+
 
 import Ninja from '@/components/Ninja';
 
 export default {
   name: 'App',
-  //BT - Step3 - Nested Locally:
-  //a. Include your nested component here.
+
   components: {
     Ninja
+  },
+  // BT - Props - Step 2:
+  //Define your data that you want to pass down to your child component.
+  data(){
+    return {
+      Ninja: ['item1','item2']
+    }
   }
 }
 </script>
