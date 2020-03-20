@@ -11,10 +11,15 @@
   </div>
 </template>
 
-<!--#################################################
+<!--##########################################################################
 BT - Lesson on Props.
      Sending data from the parent to the child.
-#####################################################-->
+     VERY IMPORTANT: 
+     a. Primitive types: boolean, string, numbers.
+     b. Reference type: array, objects.
+     If you pass Reference type, you change the data in the child it will 
+     effected other child as well. However, the primitive does not.
+###############################################################################-->
 <script>
 
 
