@@ -9,7 +9,7 @@
   <div>
     <h1>{{ name }}</h1>
     <p> {{ title }} </p>
-    <button @click="ChangeTitle()">Change Title</button>
+
 
   </div>
 </template>
@@ -31,18 +31,9 @@ export default {
   data(){
 
     return {
-        name: 'Ninja 1',
+        name: 'Ninja 2',
     }
   },
-  methods:{
-    ChangeTitle: function(){
-      // BT - Event - Step  1:
-      //'ChangeTitle': The name of the event.
-      //'Data from child': Data that you want to send to the Root Component. See App.vue
-      this.$emit('ChangeTitle','Data from child Ninja.vue')
-    }
-  }
-
 
 }
 </script>
