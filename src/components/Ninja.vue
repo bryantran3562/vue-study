@@ -7,7 +7,12 @@
  <!-- BT - You can only have a single <div></div> in your template. All other must be nested inside this root <div></div> -->
 
   <div>
+
+    <!-- BT - Notice - The second html plate can place anywhere by refer to the name of the slot -->
+    <slot name ="template_from_parent_2"></slot>
     <h1>{{ name }}</h1>
+        <!-- BT - Slot - Step2: Refer it here -->
+    <slot name ="template_from_parent_1"></slot>
 
   </div>
 </template>
@@ -18,7 +23,7 @@ export default {
   data(){
 
     return {
-        name: 'HelloWorld',
+        name: 'Ninja3',
     }
   }
 
