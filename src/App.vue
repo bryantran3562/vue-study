@@ -6,6 +6,8 @@
     <!-- <showBlogs></showBlogs>
     <list-blogs></list-blogs> -->
 
+    <app-header></app-header>
+
     <router-view></router-view>
  
   </div>
@@ -19,6 +21,8 @@
 //import showBlogs from './components/showBlogs.vue';
 //import listBlogs from './components/listBlogs.vue';
 
+import header from './components/header.vue';
+
 export default {
   name: 'App',
   //BT - Step3 - Nested Locally:
@@ -27,6 +31,7 @@ export default {
     //addBlog,
     //showBlogs,
     //listBlogs,
+    'app-header': header
   }
 }
 </script>
