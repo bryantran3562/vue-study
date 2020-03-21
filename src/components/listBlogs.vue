@@ -1,19 +1,20 @@
 <template>
 
     <div id="show-blogs">
-        <h1>All Blog Articles</h1>
+        <h1>List Blog Articles</h1>
         <!-- BT - Setup a search box -->
         <input type="text" v-model="search" placeholder="search blogs" />
         <!-- BT - Replace blogs with filterBlogs. This function will return only those are matched the user search. -->
         <div v-for="blog in filteredBlogs" :key="blog.id" class="single-blog">
             <!-- BT - The blog.title is the value and it will pass into our filter. See main.js -->
             <h2 v-rainbow>{{ blog.title | to-uppercase }}</h2>
-            <article>{{ blog.body | snippet }}</article>
+ 
         </div>
     </div>
 </template>
 
 <script>
+
 //BT - Mixin - Import your mixin file here. Then register it under the mixins property.
 
 import searchMixin from '../mixins/searchMixin';
@@ -59,6 +60,11 @@ export default {
     //       be able to use it. See main.js
     //       Otherwise, register here only for locall use.
     //       VERY IMPORTANT: Filter needs to pass in function.
+    //                       Filter is not changing any data. It only change the look for output.
+    //                       For example, in the case of search, if your data is coming in with
+    //                       lower case, and you used filter to display it as a Upper case. When
+    //                       you search for Upper case, it will not find since the original data
+    //                       is at lower cases.
     //###########################################################################################
     filters:{
         'to-uppercase':function(value){

@@ -4,6 +4,7 @@
 
     <!-- <addBlog></addBlog> -->
     <showBlogs></showBlogs>
+    <list-blogs></list-blogs>
  
   </div>
 </template>
@@ -14,6 +15,7 @@
 
 //import addBlog from '@/components/addBlog';
 import showBlogs from './components/showBlogs.vue';
+import listBlogs from './components/listBlogs.vue';
 
 export default {
   name: 'App',
@@ -21,7 +23,8 @@ export default {
   //a. Include your nested component here.
   components: {
     //addBlog,
-    showBlogs
+    showBlogs,
+    listBlogs,
   }
 }
 </script>
