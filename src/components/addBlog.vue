@@ -19,7 +19,7 @@
             <input type="text" v-model.lazy="blog.title" required />
             <label>Blog Content:</label>
             <textarea v-model.lazy.trim="blog.content"></textarea>
-            
+
             <!-- BT - blog.categories is an array and Vue will automatically addin which value the user is selected
                       into the blog.categories array for us
              -->
@@ -35,6 +35,16 @@
                 <input type="checkbox" value="cheese" v-model="blog.categories" />
             </div>
 
+            <!-- BT - Select box -->
+            <label>Author:</label>
+            <!-- BT v-mode to read in the author from the user input.
+                     You can load the blog.author as the first selected option -->
+            <select v-model="blog.author">
+              <!-- BT - Load all the data array to this option. Whenever seleted an option, it will go into
+                        the v-model="blog.author" -->
+                <option v-for="author in blog.authors" :key="author.id">{{ author }}</option>
+            </select>
+
         </form>
         <!-- BT - Create some preview to see what we have received the user input -->
         <div id="preview">
@@ -43,10 +53,16 @@
             <!-- BT - You can make a new line by using a <p> tag -->
             <p>Blog content:</p>
             <p style="white-space: pre">{{ blog.content }}</p>
+
+
             <p>Blog Categories:</p>
             <ul>
                 <li v-for="category in blog.categories" :key="category.id">{{ category }}</li>
             </ul>
+
+    
+            <!-- BT - Display the select box -->
+            <p>Author: {{ blog.author }}</p>
         </div>
 
 
@@ -61,7 +77,8 @@ export default {
       blog:{
         title: '',
         content: '',
-        categories: []
+        categories: [],
+        authors: ['The Net Ninja', 'The Angular Avenger', 'The Vue Vindicator']
       }
     }
   }
