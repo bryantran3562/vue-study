@@ -7,7 +7,7 @@
         <!-- BT - Replace blogs with filterBlogs. This function will return only those are matched the user search. -->
         <div v-for="blog in filteredBlogs" :key="blog.id" class="single-blog">
             <!-- BT - The blog.title is the value and it will pass into our filter. See main.js -->
-            <h2 v-rainbow>{{ blog.title | to-uppercase }}</h2>
+            <router-link v-bind:to="'/blog/' + blog.id"><h2>{{ blog.title }}</h2></router-link>
             <article>{{ blog.body | snippet }}</article>
         </div>
     </div>
