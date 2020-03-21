@@ -8,6 +8,11 @@
 
   <div>
     <h1>{{ name }}</h1>
+    <!-- BT - Refs - Step 2:
+          You just need to attach to it with ref="some_name" 
+    -->
+    <input ref="input" type="text" />
+    <button @click="getUserInput()">Click Me</button>
 
   </div>
 </template>
@@ -19,6 +24,14 @@ export default {
 
     return {
         name: 'HelloWorld',
+    }
+  },
+  methods: {
+    getUserInput: function(){
+
+      // BT - Refs - Then you can access that element with all the details. Then you can access each of the property.
+      //console.log(this.$refs);
+      console.log(this.$refs.input.value);
     }
   }
 

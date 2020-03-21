@@ -9,6 +9,12 @@
 </template>
 
 <script>
+
+//#####################################################################################################################
+//BT - Refs: Step1: The idea of this is that - you can get a lot of the details of a certain html element if you attached
+//           to it with a keyword: ref = "some_name". Then you can use the some_name to look at the detail of that
+//           html element. See Ninja.vue
+//#####################################################################################################################
 // BT - Step2 - Nested Locally:
 //a. Import your new component here with import statement
 
