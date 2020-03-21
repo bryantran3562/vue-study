@@ -19,6 +19,22 @@
             <input type="text" v-model.lazy="blog.title" required />
             <label>Blog Content:</label>
             <textarea v-model.lazy.trim="blog.content"></textarea>
+            
+            <!-- BT - blog.categories is an array and Vue will automatically addin which value the user is selected
+                      into the blog.categories array for us
+             -->
+            <div id="checkboxes">
+                <p>Blog Categories:</p>
+                <label>Ninjas</label>
+                <input type="checkbox" value="ninja" v-model="blog.categories" />
+                <label>Wizards</label>
+                <input type="checkbox" value="wizards" v-model="blog.categories" />
+                <label>Mario</label>
+                <input type="checkbox" value="mario" v-model="blog.categories" />
+                <label>Cheese</label>
+                <input type="checkbox" value="cheese" v-model="blog.categories" />
+            </div>
+
         </form>
         <!-- BT - Create some preview to see what we have received the user input -->
         <div id="preview">
@@ -27,6 +43,10 @@
             <!-- BT - You can make a new line by using a <p> tag -->
             <p>Blog content:</p>
             <p style="white-space: pre">{{ blog.content }}</p>
+            <p>Blog Categories:</p>
+            <ul>
+                <li v-for="category in blog.categories" :key="category.id">{{ category }}</li>
+            </ul>
         </div>
 
 
@@ -40,7 +60,8 @@ export default {
     return {
       blog:{
         title: '',
-        content: ''
+        content: '',
+        categories: []
       }
     }
   }
@@ -74,5 +95,12 @@ input[type="text"], textarea{
 }
 h3{
     margin-top: 10px;
+}
+#checkboxes input{
+    display: inline-block;
+    margin-right: 10px;
+}
+#checkboxes label{
+    display: inline-block;
 }
 </style>
