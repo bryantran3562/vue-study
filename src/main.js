@@ -15,43 +15,20 @@ import VueResource from 'vue-resource'
 // Use vue-resource package
 Vue.use(VueResource);
 
-//############################################################################################
-// BT - Custom directive - Step 1:
-//a. el: the element that you have the directive on.
-//b. binding: pass in value in your custom directive.
-//c. vnode: Not to worry
-//d. Directive has the same life cycle hook as the Vue. We used bind life cycle hook.
-//############################################################################################
-Vue.directive('rainbow', {
-  bind(el, binding, vnode){
-      el.style.color = "#" + Math.random().toString(16).slice(2, 8);
-      binding;
-      vnode;
-  }
+//##########################################################################################
+//BT - Filters: Step 1
+//a. value: is the value infront of the | and your filter. So, we will update that value
+//          and return it back. See ShowBlogs.vue
+//The idea is not changing the data. But only how we want to output this data.
+//###########################################################################################
+Vue.filter('to-uppercase', function(value){
+  return value.toUpperCase();
 });
 
-//############################################################################################
-// BT - Custom directive with param input.
-//############################################################################################
-
-Vue.directive('theme', {
-  bind(el, binding, vnode){
-      //BT - We can check for what value has been passed into our directive named 'theme'. See
-      //     showBlogs.vue
-
-      if (binding.value == 'wide'){
-          el.style.maxWidth = "1260px";
-      } else if (binding.value == 'narrow'){
-          el.style.maxWidth = "560px";
-      }
-      //BT - This is how to check the arg value passed into our directive.
-      if(binding.arg == 'column'){
-          el.style.background = '#ddd';
-          el.style.padding = '20px';
-      }
-      vnode;
-  }
+Vue.filter('snippet', function(value){
+  return value.slice(0,100) + "...";
 });
+
 
 
 new Vue({

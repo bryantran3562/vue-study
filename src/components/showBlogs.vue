@@ -1,16 +1,11 @@
 <template>
-    <!-- BT - For this custom directive, you need to pass in a string. However, it can be
-              an object..etc.
-              ##############################################################################
-              Notes: after the colon is called args where after a an equal sign is a value
-              ##############################################################################
-     -->
-    <div v-theme:column="'narrow'" id="show-blogs">
+
+    <div id="show-blogs">
         <h1>All Blog Articles</h1>
         <div v-for="blog in blogs" :key="blog.id" class="single-blog">
-            <!-- BT - Custom directive - Step 2: -->
-            <h2 v-rainbow>{{ blog.title }}</h2>
-            <article>{{ blog.body }}</article>
+            <!-- BT - The blog.title is the value and it will pass into our filter. See main.js -->
+            <h2>{{ blog.title | to-uppercase }}</h2>
+            <article>{{ blog.body | snippet }}</article>
         </div>
     </div>
 </template>
