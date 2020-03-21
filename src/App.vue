@@ -1,11 +1,10 @@
 <template>
 <!-- BT - This is a ROOT component file - where you would need to nest all of your other components -->
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
     <!-- BT - Nested component:
               Step3: Add your nested component here.
               This is your nested component called - HelloWorld.vue  -->
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld />
   </div>
 </template>
 
