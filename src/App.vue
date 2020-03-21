@@ -3,8 +3,10 @@
   <div id="app">
 
     <!-- <addBlog></addBlog> -->
-    <showBlogs></showBlogs>
-    <list-blogs></list-blogs>
+    <!-- <showBlogs></showBlogs>
+    <list-blogs></list-blogs> -->
+
+    <router-view></router-view>
  
   </div>
 </template>
@@ -14,8 +16,8 @@
 //a. Import your new component here with import statement
 
 //import addBlog from '@/components/addBlog';
-import showBlogs from './components/showBlogs.vue';
-import listBlogs from './components/listBlogs.vue';
+//import showBlogs from './components/showBlogs.vue';
+//import listBlogs from './components/listBlogs.vue';
 
 export default {
   name: 'App',
@@ -23,8 +25,8 @@ export default {
   //a. Include your nested component here.
   components: {
     //addBlog,
-    showBlogs,
-    listBlogs,
+    //showBlogs,
+    //listBlogs,
   }
 }
 </script>
