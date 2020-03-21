@@ -45,7 +45,20 @@
                 <option v-for="author in blog.authors" :key="author.id">{{ author }}</option>
             </select>
 
+            <!-- BT - Adding a summit button here.
+                      Notes: The prevent will not go to another web page by default when we click on submit button
+             -->
+            <hr />
+            <button v-on:click.prevent="post">Add Blog</button>
+
         </form>
+
+        <!-- BT - This will send an message after you have clicked on submit button -->
+        <div v-if="submitted">
+            <h3>Thanks for adding your post</h3>
+        </div>
+
+
         <!-- BT - Create some preview to see what we have received the user input -->
         <div id="preview">
             <h3>Preview blog</h3>
@@ -78,10 +91,25 @@ export default {
         title: '',
         content: '',
         categories: [],
-        authors: ['The Net Ninja', 'The Angular Avenger', 'The Vue Vindicator']
-      }
+        authors: ['The Net Ninja', 'The Angular Avenger', 'The Vue Vindicator'],
+      },
+      submitted: false
     }
-  }
+  },
+
+  methods: {
+    post: function(){
+        // BT - Use $http to post. This web site is where you can test your post.
+        this.$http.post('http://jsonplaceholder.typicode.com/posts', {
+            title: this.blog.title,
+            body: this.blog.content,
+            userId: 1
+        }).then(function(data){
+            console.log(data);
+            this.submitted = true;
+        });
+    }
+}
 
 
 }
@@ -112,6 +140,7 @@ input[type="text"], textarea{
 }
 h3{
     margin-top: 10px;
+    color: green
 }
 #checkboxes input{
     display: inline-block;
