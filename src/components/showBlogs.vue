@@ -7,7 +7,7 @@
         <!-- BT - Replace blogs with filterBlogs. This function will return only those are matched the user search. -->
         <div v-for="blog in filteredBlogs" :key="blog.id" class="single-blog">
             <!-- BT - The blog.title is the value and it will pass into our filter. See main.js -->
-            <h2>{{ blog.title | to-uppercase }}</h2>
+            <h2 v-rainbow>{{ blog.title | to-uppercase }}</h2>
             <article>{{ blog.body | snippet }}</article>
         </div>
     </div>
@@ -41,6 +41,38 @@ export default {
             return this.blogs.filter((blog) => {
                 return blog.title.match(this.search);
             });
+        }
+    },
+    //##########################################################################################
+    //BT - Filters - Directive - register - locally.
+    //Notes: If you put them in the main.js - it will become globally then any component would
+    //       be able to use it. See main.js
+    //       Otherwise, register here only for locall use.
+    //       VERY IMPORTANT: Filter needs to pass in function.
+    //###########################################################################################
+    filters:{
+        'to-uppercase':function(value){
+            return value.toUpperCase();
+        },
+        'snippet': function(value){
+            return value.slice(0,100) + "...";
+        }
+    },
+
+    directives:{
+        //###################################################################
+        //BT - VERY IMPORTANT: This is not a function. It is an object.
+        //###################################################################
+        'rainbow':{
+
+            bind(el, binding ,vnode){
+                el.style.color = "#" + Math.random().toString(16).slice(2,8);
+                binding;
+                vnode;
+                console.log(typeof(el));
+            }
+
+
         }
     }
 }

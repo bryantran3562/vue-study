@@ -16,18 +16,15 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource);
 
 //##########################################################################################
-//BT - Filters: Step 1
-//a. value: is the value infront of the | and your filter. So, we will update that value
-//          and return it back. See ShowBlogs.vue
-//The idea is not changing the data. But only how we want to output this data.
+//BT - Filters - Directive - register here for globally used. Any component can just use it.
 //###########################################################################################
-Vue.filter('to-uppercase', function(value){
-  return value.toUpperCase();
-});
+// Vue.filter('to-uppercase', function(value){
+//   return value.toUpperCase();
+// });
 
-Vue.filter('snippet', function(value){
-  return value.slice(0,100) + "...";
-});
+// Vue.filter('snippet', function(value){
+//   return value.slice(0,100) + "...";
+// });
 
 
 
